@@ -1,0 +1,30 @@
+1. How much did we spent per channel in December?
+
+
+select marketing_channel_id, sum(spendings)
+from spendings
+where month(report_date)=12
+and is_paid_channel = "True"
+group by marketing_channel_id;
+
+
+2. What is the average cost of acquisition for a subscription per country?
+
+
+select country_code, sum(sp.spendings) 'net spendings', sum(su.subscription_count) 'number of subscriptions', sum(sp.spendings)/sum(su.subscription_count) 'Avg cost of acquisition per subscription'
+from spendings sp
+join subscriptions su 
+on sp.country_code = su.signup_country_code
+group by country_code;
+
+
+
+3. What is our average revenue and spending per day of the week (Monday, Tuesday...)?
+
+select dayname(report_date) 'Day of the week', 
+avg (sp.spendings) 'Average spending', avg(su.net_revenue) 'Average revenue'
+from spendings sp
+join
+subscriptions su
+on (dayname(sp.report_date) = dayname(su.subscription_date))
+group by dayname(report_date);
