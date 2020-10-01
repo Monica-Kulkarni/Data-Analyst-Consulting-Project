@@ -14,3 +14,14 @@ Imagine our Head of Performance Marketing sends you an email:
 
 *Thanks, Ben*
 
+
+
+
+## SQL experience
+
+*Please write down the queries to answer the following questions:*
+
+1. How much did we spent per channel in December?
+2. What is the average cost of acquisition for a subscription per country?
+3. What is our average revenue and spending per day of the week (Monday, Tuesday...)
+
